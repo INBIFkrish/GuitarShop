@@ -46,6 +46,7 @@ public class ApplicationContextConfig {
     	Properties properties = new Properties();
     	properties.put("hibernate.show_sql", "true");
      	properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
+     	properties.put("hibernate.hbm2ddl.auto", "update");
     	return properties;
     }
     
@@ -74,8 +75,8 @@ public class ApplicationContextConfig {
 	
 	
 	  @Autowired
-	    @Bean(name = "userDao")
-	    public UserDAO getUserDao(SessionFactory sessionFactory) {
+	    @Bean(name = "userDAO")
+	    public UserDAOImp getUserDao(SessionFactory sessionFactory) {
 	    	return new UserDAOImp(sessionFactory);
 	    }
 	

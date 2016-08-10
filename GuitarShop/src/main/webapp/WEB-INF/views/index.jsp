@@ -1,39 +1,9 @@
-<!DOCTYPE html>
-<html>
+<%@include file="./shared/header.jsp" %>
 
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width-device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="mystyle.css">
+<%@include file="./shared/menu.jsp" %>
 
-<title>Buy all the guitars</title>
-</head>
 <body>
 
-	<nav id="nav" class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#"> <img class="logo"
-					src="Images/logo.png">
-				</a>
-			</div>
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
-				<li><a href="#">Acoustic</a></li>
-				<li><a href="#">Ukulele</a></li>
-				<li><a href="#">Electric</a></li>
-			</ul>
-			<ul class="nav navbar-nav" id="login">
-				<li><a href="login.jsp">Login or Sign up</a></li>
-			</ul>
-		</div>
-	</nav>
 
 	<div class="container">
 		<br>
@@ -49,28 +19,28 @@
 			<div class="carousel-inner" role="listbox">
 
 				<div class="item active">
-					<img src="Images/electric.gif" alt="Image1">
+					<img src="${img}/electric.gif" alt="Image1">
 					<div class="carousel-caption">
 						<h3>Electric Guitar</h3>
 					</div>
 				</div>
 
 				<div class="item">
-					<img src="Images/guitar (1).jpg" alt="Image2">
+					<img src="${img}/guitar (1).jpg" alt="Image2">
 					<div class="carousel-caption">
 						<h3>Acoustic Guitar</h3>
 					</div>
 				</div>
 
 				<div class="item">
-					<img src="Images/guitar (3).jpg" alt="Image3">
+					<img src="resources/Images/guitar (3).jpg" alt="Image3">
 					<div class="carousel-caption">
 						<h3>Ukulele beside an acoustic</h3>
 					</div>
 				</div>
 
 				<div class="item">
-					<img src="Images/acoustic.gif" alt="Image4">
+					<img src="resources/Images/acoustic.gif" alt="Image4">
 					<div class="carousel-caption">
 						<h3>Strumming</h3>
 					</div>
@@ -94,7 +64,8 @@
 	<div class="row">
 		<div class="col-sm-4">
 			<a href="acoustic.html"> <img class="category"
-				src="Images/acoustic.png"> <span class="text-content"><span>
+				src="resources/Images/acoustic.png"> <span
+				class="text-content"><span>
 						<h3>Acoustic</h3> The steel-string acoustic guitar is a modern
 						form of guitar that descends from the classical guitar, but is
 						strung with steel strings for a brighter, louder sound. It is
@@ -106,7 +77,8 @@
 		</div>
 		<div class="col-sm-4">
 			<a href="acoustic.html"> <img class="category"
-				src="Images/electric.png"> <span class="text-content"><span>
+				src="resources/Images/electric.png"> <span
+				class="text-content"><span>
 						<h3>Electric</h3> An electric guitar is a guitar that uses a
 						pickup to convert the vibration of its strings—which are typically
 						made of metal, and which occurs when a guitarist strums, plucks or
@@ -128,9 +100,8 @@
 		</div>
 		<div class="col-sm-4">
 			<a href="acoustic.html"> <img class="category"
-				src="Images/ukulele.jpg"> <span class="text-content"><span>
-						<h3>Ukulele</h3> 
-						The ukulele (/juːkəˈleɪliː/ yoo-kə-lay-lee, from
+				src="resources/Images/ukulele.jpg"> <span class="text-content"><span>
+						<h3>Ukulele</h3> The ukulele (/juːkəˈleɪliː/ yoo-kə-lay-lee, from
 						Hawaiian: ʻukulele [ˈʔukuˈlɛlɛ] (oo-koo-leh-leh); variant:
 						ukelele),[1] sometimes abbreviated to uke, is a member of the lute
 						family of instruments; it generally employs four nylon or gut
@@ -140,23 +111,8 @@
 		</div>
 	</div>
 
-	<div class="row" id="footer">
-		<div class="col-sm-4" id="footerleft">
+	<%@include file="./shared/footer.jsp" %>
 
-			<p>Contact Us <br> Where are we <br> Copyright</p>
-
-		</div>
-		<div class="col-sm-4">
-			
-			<img class="footerimg" src="Images/logo.png">
-			
-		</div>
-		<div class="col-sm-4">
-			
-			<p>Next Day Delivery <br> Guarantee </p>
-			
-		</div>
-	</div>
 
 
 </body>

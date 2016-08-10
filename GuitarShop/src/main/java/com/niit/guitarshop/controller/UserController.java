@@ -1,6 +1,4 @@
-package com.niit.guitarshop.controller;
-
-import java.util.List;
+/*package com.niit.guitarshop.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -9,13 +7,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 //import com.niit.guitarshop.dao.CartDAO;
 //import com.niit.guitarshop.dao.CategoryDAO;
 import com.niit.guitarshop.dao.UserDAO;
+import com.niit.guitarshop.dao.UserDAOImp;
 //import com.niit.guitarshop.model.Cart;
 //import com.niit.guitarshop.model.Category;
 import com.niit.guitarshop.model.User;
@@ -26,12 +27,23 @@ public class UserController {
 	Logger log = LoggerFactory.getLogger(UserController.class);
 
 	@Autowired
-	UserDAO userDAO;
+	private UserDAOImp userDAO;
+	
+	public UserController () {
+		
+	}
+	
+	public UserController(UserDAOImp userDAO, User user) {
+		super();
+		this.userDAO = userDAO;
+		this.user = user;
+	}
+
 
 	@Autowired
-	User userDetails;
+	User user;
 
-/*	@Autowired
+	@Autowired
 	private CartDAO cartDAO;
 	
 	@Autowired
@@ -43,17 +55,31 @@ public class UserController {
 	@Autowired
 	private Category category;
 	
-*/	
 	
 	
-	/**
+	
+	*//**
 	 * if invalid credentials ->  Home page , login ,  error message
 	 * if valid credentials  && he is admin ->  AdminHome page ,logout link
 	 * if valid credentials && he is end user ->  Home page, cart, logout link
 	 * @param userID
 	 * @param password
 	 * @return it will return data and page name where to return
-	 */
+	 *//*
+	@RequestMapping(value = "user/register", method = RequestMethod.POST)
+	public ModelAndView registerUser(@ModelAttribute User user) {
+		userDAO.saveOrUpdate(user);
+		ModelAndView mv = new ModelAndView("/index");
+		mv.addObject("successMessage", "You are successfully registered");
+		
+		return mv;
+	}
+	
+	@RequestMapping("/login")
+	public String getLogin() {
+		return "login";
+	}
+	
 	@RequestMapping("/login")
 	public ModelAndView login(@RequestParam(value = "name") String userID,
 			@RequestParam(value = "password") String password, HttpSession session) {
@@ -65,9 +91,9 @@ public class UserController {
 		boolean isValidUser = userDAO.isValidUser(userID, password);
 
 		if (isValidUser == true) {
-			userDetails = userDAO.get(userID);
-			session.setAttribute("loggedInUser", userDetails.getId());
-			if (userDetails.isAdmin() == true) {
+			user = userDAO.get(userID);
+			session.setAttribute("loggedInUser", user.getId());
+			if (user.isAdmin() == true) {
 				mv.addObject("isAdmin", "true");
 
 			} 
@@ -109,3 +135,4 @@ public class UserController {
 	 }
 
 }
+*/
