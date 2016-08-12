@@ -22,9 +22,9 @@ public class UserTest {
 	UserDAO userDAO = (UserDAO)  context.getBean("userDAO");
 	
 	
-	u.setId("niit");
-	u.setPassword("123");
-	u.setAdmin(true);
+	u.setId("niit1");
+	u.setPassword("1234");
+	u.setAdmin(false);
 	
 	
 	userDAO.saveOrUpdate(u);

@@ -2,7 +2,7 @@
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="#"> <img class="logo"
-					src="${img}/logo.png">
+					src="resources/Images/logo.png">
 				</a>
 			</div>
 			<ul class="nav navbar-nav">
@@ -10,6 +10,7 @@
 				<li><a href="#">Acoustic</a></li>
 				<li><a href="#">Ukulele</a></li>
 				<li><a href="#">Electric</a></li>
+				<li><a href="category">Category</a></li>	
 			</ul>
 			<ul class="nav navbar-nav" id="login">
 				<li><a href="login">Login or Sign up</a></li>

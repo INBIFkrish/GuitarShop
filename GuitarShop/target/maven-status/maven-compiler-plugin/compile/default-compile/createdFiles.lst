@@ -1,1 +1,2 @@
-com\niit\guitarshop\controller\HomeController.class
+com\niit\guitarshop\controller\CategoryController.class
+com\niit\guitarshop\controller\PageController.class

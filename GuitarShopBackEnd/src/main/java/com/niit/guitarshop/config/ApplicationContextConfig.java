@@ -17,18 +17,16 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.niit.guitarshop.dao.UserDAO;
 import com.niit.guitarshop.dao.UserDAOImp;
 import com.niit.guitarshop.model.User;
-
+import com.niit.guitarshop.dao.CategoryDAO;
+import com.niit.guitarshop.dao.CategoryDAOImp;
+import com.niit.guitarshop.model.Category;
 
 @Configuration
 @ComponentScan("com.niit.guitarshop")
 @EnableTransactionManagement
 
-
 public class ApplicationContextConfig {
-	
 
-	
- 	
 	@Bean(name = "dataSource")
 	public DataSource getDataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -39,48 +37,45 @@ public class ApplicationContextConfig {
 		dataSource.setPassword("");
 		return dataSource;
 	}
-    
-   
-    
-    private Properties getHibernateProperties() {
-    	Properties properties = new Properties();
-    	properties.put("hibernate.show_sql", "true");
-     	properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
-     	properties.put("hibernate.hbm2ddl.auto", "update");
-    	return properties;
-    }
-    
-    @Autowired
-    @Bean(name = "sessionFactory")
-    public SessionFactory getSessionFactory(DataSource dataSource) {
-    	LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
-    	sessionBuilder.addProperties(getHibernateProperties());
-    	sessionBuilder.addAnnotatedClass(User.class);
-      	return sessionBuilder.buildSessionFactory();
-    }
-    
+
+	private Properties getHibernateProperties() {
+		Properties properties = new Properties();
+		properties.put("hibernate.show_sql", "true");
+		properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
+		properties.put("hibernate.hbm2ddl.auto", "update");
+		return properties;
+	}
+
+	@Autowired
+	@Bean(name = "sessionFactory")
+	public SessionFactory getSessionFactory(DataSource dataSource) {
+		LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
+		sessionBuilder.addProperties(getHibernateProperties());
+		sessionBuilder.addAnnotatedClass(User.class);
+		sessionBuilder.addAnnotatedClass(Category.class);
+		return sessionBuilder.buildSessionFactory();
+	}
+
 	@Autowired
 	@Bean(name = "transactionManager")
-	public HibernateTransactionManager getTransactionManager(
-			SessionFactory sessionFactory) {
-		HibernateTransactionManager transactionManager = new HibernateTransactionManager(
-				sessionFactory);
+	public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory) {
+		HibernateTransactionManager transactionManager = new HibernateTransactionManager(sessionFactory);
 
 		return transactionManager;
 	}
-    
-   
 
+	@Autowired
+	@Bean(name = "userDAO")
+	public UserDAOImp getUserDao(SessionFactory sessionFactory) {
+		return new UserDAOImp(sessionFactory);
+	}
+	
+	@Autowired
+	@Bean(name = "categoryDAO")
+	public CategoryDAOImp getCategoryDAO (SessionFactory sessionFactory) {
+		return new CategoryDAOImp(sessionFactory);
+	}
+	
 
-	
-	
-	  @Autowired
-	    @Bean(name = "userDAO")
-	    public UserDAOImp getUserDao(SessionFactory sessionFactory) {
-	    	return new UserDAOImp(sessionFactory);
-	    }
-	
-	  	
-	
 
 }

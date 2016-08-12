@@ -27,19 +27,8 @@ public class UserController {
 	Logger log = LoggerFactory.getLogger(UserController.class);
 
 	@Autowired
-	private UserDAOImp userDAO;
+	UserDAOImp userDAO;
 	
-	public UserController () {
-		
-	}
-	
-	public UserController(UserDAOImp userDAO, User user) {
-		super();
-		this.userDAO = userDAO;
-		this.user = user;
-	}
-
-
 	@Autowired
 	User user;
 
@@ -58,14 +47,14 @@ public class UserController {
 	
 	
 	
-	*//**
+	
 	 * if invalid credentials ->  Home page , login ,  error message
 	 * if valid credentials  && he is admin ->  AdminHome page ,logout link
 	 * if valid credentials && he is end user ->  Home page, cart, logout link
 	 * @param userID
 	 * @param password
 	 * @return it will return data and page name where to return
-	 *//*
+	 
 	@RequestMapping(value = "user/register", method = RequestMethod.POST)
 	public ModelAndView registerUser(@ModelAttribute User user) {
 		userDAO.saveOrUpdate(user);

@@ -3,7 +3,7 @@ html, body {
 	padding: 0;
 	width: 100%;
 	height: 100%;
-	background-image: url(Images/guitar.jpg);
+	background-image: url(../Images/guitar.jpg);
 }
 
 #login {
@@ -17,7 +17,7 @@ html, body {
 	position: fixed;
 	z-index: 1;
 	font-size: 2em;
-	background-image: url(Images/footer.jpg);
+	background-image: url(../Images/footer.jpg);
 }
 
 .logo {
@@ -91,7 +91,7 @@ span.text-content span {
 
 #footer {
 	color: white;
-	background-image: url(Images/footer.jpg);
+	background-image: url(../Images/footer.jpg);
 }
 
 /* Bordered form */
@@ -135,7 +135,7 @@ img.avatar {
 /* Add padding to containers */
 #logincontainer {
     padding: 16px;
-    background-image: url("Images/footer.jpg");
+    background-image: url("../Images/footer.jpg");
 }
 
 /* The "Forgot password" text */
