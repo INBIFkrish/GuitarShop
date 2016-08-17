@@ -1,6 +1,3 @@
-<%@include file="./shared/header.jsp" %>
-<%@include file="./shared/menu.jsp"%>
-
 	<div class="row">
 		<div class="col-sm-6">
 
@@ -34,4 +31,4 @@
 		<div class="col-sm-6">Right</div>
 	</div>
 
-<%@include file="./shared/footer.jsp" %>
+<%@include file="./shared/footer.jsp"%>

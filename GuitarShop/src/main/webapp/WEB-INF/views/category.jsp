@@ -1,9 +1,8 @@
-<%@include file="./shared/header.jsp"%>
+<%@include file="./shared/header.jsp" %>
 <%@include file="./shared/menu.jsp"%>
 
-
 <h2>Student Information</h2>
-<form:form method="POST" action="/GuitarShop/addCategory">
+<form:form method="POST" action="/GuitarShop/addCategory" commandName="categoryForm">
 	<table>
 		<tr>
 			<td><form:label path="id">ID:</form:label></td>
@@ -23,5 +22,5 @@
 	</table>
 </form:form>
 
-
 <%@include file="./shared/footer.jsp"%>
+
