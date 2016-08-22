@@ -1,4 +1,4 @@
-/*package com.niit.guitarshop.controller;
+package com.niit.guitarshop.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -13,30 +13,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-//import com.niit.guitarshop.dao.CartDAO;
-//import com.niit.guitarshop.dao.CategoryDAO;
-import com.niit.guitarshop.dao.UserDAO;
-import com.niit.guitarshop.dao.UserDAOImp;
-//import com.niit.guitarshop.model.Cart;
-//import com.niit.guitarshop.model.Category;
-import com.niit.guitarshop.model.User;
+import com.niit.guitarshop.dao.*;
+import com.niit.guitarshop.model.*;
 
 @Controller
 public class UserController {
 
 	Logger log = LoggerFactory.getLogger(UserController.class);
-
+	
 	@Autowired
-	UserDAOImp userDAO;
+	UserDAO userDAO;
 	
 	@Autowired
 	User user;
 
-	@Autowired
-	private CartDAO cartDAO;
+//	@Autowired
+//	private CartDAO cartDAO;
 	
-	@Autowired
-	private Cart cart;
+//	@Autowired
+//	private Cart cart;
 	
 	@Autowired
 	private CategoryDAO categoryDAO;
@@ -48,37 +43,59 @@ public class UserController {
 	
 	
 	
-	 * if invalid credentials ->  Home page , login ,  error message
+	 /* if invalid credentials ->  Home page , login ,  error message
 	 * if valid credentials  && he is admin ->  AdminHome page ,logout link
 	 * if valid credentials && he is end user ->  Home page, cart, logout link
 	 * @param userID
 	 * @param password
 	 * @return it will return data and page name where to return
-	 
+	 */
+	
+	@RequestMapping(value = {"/login"})
+	public ModelAndView getLogin(){
+		ModelAndView mv = new ModelAndView("index");
+		mv.addObject("ifLoginClicked", true);
+		return mv;
+	}
+
+	@ModelAttribute("user")
+	public User loadEmptyModelBean(){
+	   return new User();
+	}
+	
+	@ModelAttribute("userLogin")
+	public User loadEmptyModelBeanForLogin(){
+		   return new User();
+		}
+	
+	
 	@RequestMapping(value = "user/register", method = RequestMethod.POST)
-	public ModelAndView registerUser(@ModelAttribute User user) {
+	public ModelAndView registerUser(@ModelAttribute User user, @RequestParam(value = "id") String userID, 
+			@RequestParam(value = "pass") String password) {
+		
+		user.setId(userID);
+		user.setPassword(password);
 		userDAO.saveOrUpdate(user);
 		ModelAndView mv = new ModelAndView("/index");
-		mv.addObject("successMessage", "You are successfully registered");
+		mv.addObject("userRegistered", true);
 		
 		return mv;
 	}
 	
-	@RequestMapping("/login")
-	public String getLogin() {
-		return "login";
-	}
 	
-	@RequestMapping("/login")
-	public ModelAndView login(@RequestParam(value = "name") String userID,
-			@RequestParam(value = "password") String password, HttpSession session) {
+	
+	@RequestMapping(value = "user/login")
+	@ModelAttribute("userLogin")
+
+	public ModelAndView login(@RequestParam(value = "id") String userID,
+			@RequestParam(value = "pass") String password, HttpSession session) {
 		log.debug("Starting of the method login");
 		log.info("userID is {}  password is {}", userID, password);
 
 	
-		ModelAndView mv = new ModelAndView("home");
+		ModelAndView mv = new ModelAndView("menu");
 		boolean isValidUser = userDAO.isValidUser(userID, password);
-
+	
 		if (isValidUser == true) {
 			user = userDAO.get(userID);
 			session.setAttribute("loggedInUser", user.getId());
@@ -124,4 +141,3 @@ public class UserController {
 	 }
 
 }
-*/

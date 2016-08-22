@@ -8,35 +8,41 @@ import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 
 @Entity
-@Table(name = "userdata")
+@Table(name = "SUPPLIER")
 @Component
-public class User {
-
+public class Supplier {
+	
 	@Id
 	@Column(name="id")
 	private String id;
-	@Column(name="pass")
-	private String pass;	
-	@Column(name = "admin")
-	private boolean isAdmin;
+	private String name;
+	private String address;
+	
 	
 	public String getId() {
 		return id;
 	}
+
 	public void setId(String id) {
 		this.id = id;
-	}	
-	public String getPass() {
-		return pass;
 	}
-	public void setPassword(String pass) {
-		this.pass = pass;
+
+	public String getName() {
+		return name;
 	}
-	public boolean isAdmin() {
-		return isAdmin;
+
+	public void setName(String name) {
+		this.name = name;
 	}
-	public void setAdmin(boolean isAdmin) {
-		this.isAdmin = isAdmin;
+
+	public String getAddress() {
+		return address;
 	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	
 
 }

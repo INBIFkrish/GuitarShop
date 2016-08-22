@@ -8,13 +8,21 @@
 	<name>GuitarShop Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
-	
+
 		<dependency>
 			<groupId>com.niit</groupId>
 			<artifactId>GuitarShopBackEnd</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		
+
+		<!-- https://mvnrepository.com/artifact/taglibs/standard -->
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+
+
 
 		<dependency>
 			<groupId>junit</groupId>
@@ -63,7 +71,12 @@
 			<version>4.3.1.RELEASE</version>
 		</dependency>
 
-
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>7.0</version>
+			<scope> provided </scope>
+		</dependency>
 
 
 		<!-- https://mvnrepository.com/artifact/jstl/jstl -->
@@ -72,18 +85,19 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-		
+
 		<dependency>
-    <groupId>cglib</groupId>
-    <artifactId>cglib</artifactId>
-    <version>3.2.4</version>
-</dependency>
-		
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>3.2.4</version>
+		</dependency>
 
-
-
-
-
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.5</version>
+		</dependency>
+	
 	</dependencies>
 	<build>
 		<finalName>GuitarShop</finalName>

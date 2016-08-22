@@ -1,45 +1,30 @@
 package com.niit.guitarshop.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class PageController {
+@ComponentScan("com.niit.guitarshop.controller")
 
-	/*@RequestMapping(value = { "/", "/index", "/home" })
-	public ModelAndView onLoad() {
-		System.out.println("home");
+public class PageController {
+	
+	@RequestMapping(value = { "/" })
+	public ModelAndView index() {
 		ModelAndView mv = new ModelAndView("index");
 		mv.addObject("ifHomeClicked", true);
-
 		return mv;
-	}
-
-	@RequestMapping(value = { "/category" })
-	public ModelAndView category() {
-		ModelAndView mv = new ModelAndView("index");
-		mv.addObject("ifCategoryClicked", true);
-		return mv;
-
-	}
-
-	@RequestMapping(value = { "/login" })
-	public ModelAndView login() {
-		ModelAndView mv = new ModelAndView("index");
-		mv.addObject("ifLoginClicked", true);
-		return mv;
-
-	}*/
-	
-	@RequestMapping(value = { "/", "/index", "/home" })
-	public String index	() {
-		return "home";
 	}
 	
 	
-
+	
+	
+		
+	
 
 
 }

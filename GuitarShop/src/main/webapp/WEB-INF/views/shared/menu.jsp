@@ -6,11 +6,12 @@
 				</a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
+				<li class="active"><a href="home">Home</a></li>
 				<li><a href="#">Acoustic</a></li>
 				<li><a href="#">Ukulele</a></li>
 				<li><a href="#">Electric</a></li>
-				<li><a href="category">Category</a></li>	
+				<li><a href="category">Category</a></li>
+				<li><a href="supplier">Supplier</a></li>	
 			</ul>
 			<ul class="nav navbar-nav" id="login">
 				<li><a href="login">Login or Sign up</a></li>

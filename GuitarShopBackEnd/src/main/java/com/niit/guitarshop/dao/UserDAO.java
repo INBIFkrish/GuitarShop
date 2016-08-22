@@ -20,7 +20,7 @@ public interface UserDAO {
 
 	public void delete(String id);
 	
-	public boolean isValidUser(String id, String name);
+	public boolean isValidUser(String id, String pass);
 
 
 }

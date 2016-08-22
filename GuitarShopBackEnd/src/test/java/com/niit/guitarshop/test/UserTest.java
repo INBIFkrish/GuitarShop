@@ -22,12 +22,9 @@ public class UserTest {
 	UserDAO userDAO = (UserDAO)  context.getBean("userDAO");
 	
 	
-	u.setId("niit1");
-	u.setPassword("1234");
-	u.setAdmin(false);
 	
+	userDAO.delete("test");
 	
-	userDAO.saveOrUpdate(u);
 	
 	System.out.println("Worked");
 	

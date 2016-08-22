@@ -43,8 +43,7 @@ public class UserDAOImp implements UserDAO {
 	public void saveOrUpdate(UserDetails userDetails) {
 		sessionFactory.getCurrentSession().saveOrUpdate(userDetails);
 	}
-
-
+	
 	@Transactional
 	public void delete(String id) {
 		User user = new User();
@@ -68,8 +67,8 @@ public class UserDAOImp implements UserDAO {
 	}
 	
 	@Transactional
-	public boolean isValidUser(String id, String password) {
-		String hql = "from User where id= '" + id + "' and " + " password ='" + password+"'";
+	public boolean isValidUser(String id, String pass) {
+		String hql = "from User where id= '" + id + "' and " + " pass ='" + pass+"'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		
 		@SuppressWarnings("unchecked")

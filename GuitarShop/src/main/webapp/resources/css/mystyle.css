@@ -11,10 +11,13 @@ html, body {
 	right: 0px;
 }
 
+#loginbox {
+	
+}
+
 #nav {
 	margin-bottom: 0px;
 	width: 100%;
-	position: fixed;
 	z-index: 1;
 	font-size: 2em;
 	background-image: url(../Images/footer.jpg);

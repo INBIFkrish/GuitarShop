@@ -1,2 +1,4 @@
-com\niit\guitarshop\controller\CategoryController.class
 com\niit\guitarshop\controller\PageController.class
+com\niit\guitarshop\controller\CategoryController.class
+com\niit\guitarshop\controller\SupplierController.class
+com\niit\guitarshop\controller\UserController.class

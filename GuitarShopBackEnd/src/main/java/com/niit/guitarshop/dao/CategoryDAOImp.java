@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.guitarshop.model.Category;
 
-@Repository("categoryDAO")
+@Repository(value="categoryDAO")
 public class CategoryDAOImp implements CategoryDAO {
 	
 

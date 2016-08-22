@@ -1,6 +1,9 @@
 <%@include file="./shared/header.jsp"%>
-<%@include file="./shared/menu.jsp"%>
 
+<c:if test="${isAdmin == true}">
+	<li><a href="category">Category</a></li>
+	<li><a href="supplier">Supplier</a></li>
+</c:if>
 <div class="container">
 
 	<br>
@@ -101,5 +104,3 @@
 	</div>
 </div>
 
-
-<%@include file="./shared/footer.jsp"%>

@@ -16,34 +16,36 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.niit.guitarshop.dao.CategoryDAO;
-import com.niit.guitarshop.model.Category;
+import com.niit.guitarshop.dao.SupplierDAO;
+import com.niit.guitarshop.model.Supplier;
 
 @Controller
 @ComponentScan("com.niit.guitarshop.controller")
 
-public class CategoryController {
+public class SupplierController {
 
 	@Autowired
-	CategoryDAO categoryDAO;
+	SupplierDAO supplierDAO;
 
 	@Autowired
-	Category category;
+	Supplier supplier;
 	
-	@RequestMapping(value = { "/category" })
-	public String category() {
-		return "category";
+	@RequestMapping(value = {"/supplier"})
+	public ModelAndView getSupplier(){
+		ModelAndView mv = new ModelAndView("index");
+		mv.addObject("ifSupplierClicked", true);
+		return mv;
 	}
 	
-	@ModelAttribute("category")
-	public Category loadEmptyModelBean(){
-	   return new Category();
+	@ModelAttribute("supplier")
+	public Supplier loadEmptyModelBSean(){
+	   return new Supplier();
 	}
 	
-	@RequestMapping(value = "admin/category", method = RequestMethod.POST)
-	public ModelAndView registerUser(@ModelAttribute Category category) {
+	@RequestMapping(value = "admin/supplier", method = RequestMethod.POST)
+	public ModelAndView registerUser(@ModelAttribute Supplier supplier) {
 		
-		categoryDAO.saveOrUpdate(category);
+		supplierDAO.saveOrUpdate(supplier);
 		ModelAndView mv = new ModelAndView("/home");
 		
 		return mv;

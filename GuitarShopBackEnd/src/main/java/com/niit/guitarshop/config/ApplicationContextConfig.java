@@ -14,15 +14,11 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.niit.guitarshop.dao.UserDAO;
-import com.niit.guitarshop.dao.UserDAOImp;
-import com.niit.guitarshop.model.User;
-import com.niit.guitarshop.dao.CategoryDAO;
-import com.niit.guitarshop.dao.CategoryDAOImp;
-import com.niit.guitarshop.model.Category;
+import com.niit.guitarshop.model.*;
+
 
 @Configuration
-@ComponentScan("com.niit.guitarshop")
+@ComponentScan(basePackages="com.niit.guitarshop")
 @EnableTransactionManagement
 
 public class ApplicationContextConfig {
@@ -53,6 +49,7 @@ public class ApplicationContextConfig {
 		sessionBuilder.addProperties(getHibernateProperties());
 		sessionBuilder.addAnnotatedClass(User.class);
 		sessionBuilder.addAnnotatedClass(Category.class);
+		sessionBuilder.addAnnotatedClass(Supplier.class);
 		return sessionBuilder.buildSessionFactory();
 	}
 
@@ -64,18 +61,16 @@ public class ApplicationContextConfig {
 		return transactionManager;
 	}
 
-	@Autowired
+	/*@Autowired
 	@Bean(name = "userDAO")
 	public UserDAOImp getUserDao(SessionFactory sessionFactory) {
 		return new UserDAOImp(sessionFactory);
 	}
-	
+
 	@Autowired
 	@Bean(name = "categoryDAO")
-	public CategoryDAOImp getCategoryDAO (SessionFactory sessionFactory) {
+	public CategoryDAOImp getCategoryDAO(SessionFactory sessionFactory) {
 		return new CategoryDAOImp(sessionFactory);
-	}
-	
-
+	}*/
 
 }

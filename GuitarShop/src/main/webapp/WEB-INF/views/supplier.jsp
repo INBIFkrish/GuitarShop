@@ -1,32 +1,32 @@
 <%@include file="./shared/header.jsp" %>
-<%@include file="./shared/menu.jsp"%>
+
 
 <div class="row">
 		<div class="col-sm-6" id="loginbox">
 
-			<form:form action="admin/category" method="post" commandName="category">
+			<form:form action="admin/supplier" method="post" commandName="supplier">
 				<table>
 					<tr>
 						<td><form:label path="id">
-								<spring:message text="Category ID" />
+								<spring:message text="Supplier ID" />
 							</form:label></td>
 						<td><form:input path="id" required="true"
 								title="ID is required" /></td>
 					</tr>
 					<tr>
 						<td><form:label path="name">
-								<spring:message text="Category Name" />
+								<spring:message text="Supplier Name" />
 							</form:label></td>
 						<td><form:input path="name" required="true"
 								title="A name is required" /></td>
 					</tr>
 					
 					<tr>
-						<td><form:label path="description">
-								<spring:message text="Category Description" />
+						<td><form:label path="address">
+								<spring:message text="Supplier Address" />
 							</form:label></td>
-						<td><form:input path="description" required="true"
-								title="A description is required" /></td>
+						<td><form:input path="address" required="true"
+								title="An address is required" /></td>
 					</tr>
 					
 					<tr>
@@ -44,5 +44,4 @@
 	</div>
 
 
-<%@include file="./shared/footer.jsp"%>
 
