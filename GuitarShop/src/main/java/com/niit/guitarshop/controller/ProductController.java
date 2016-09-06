@@ -21,7 +21,6 @@ import com.niit.guitarshop.model.Product;
 
 @Controller
 @ComponentScan("com.niit.guitarshop.controller")
-
 public class ProductController {
 
 	@Autowired
@@ -30,9 +29,11 @@ public class ProductController {
 	@Autowired
 	Product product;
 	
-	@RequestMapping(value = { "/product" })
-	public String product() {
-		return "product";
+	@RequestMapping(value = {"/product"})
+	public ModelAndView getProductPage(){
+		ModelAndView mv = new ModelAndView("index");
+		mv.addObject("ifProductClicked", true);
+		return mv;
 	}
 	
 	@ModelAttribute("product")

@@ -8,21 +8,20 @@ import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 
 @Entity
-@Table(name = "product")
+@Table(name = "cart")
 @Component
-public class Product {
+public class Cart {
 
 	@Id
-	private String id;
 	private String name;
-	private String description;
-	private String price;
+	private double price;
+	private int quatity;
 	
-	public String getId() {
-		return id;
+	public int getQuatity() {
+		return quatity;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setQuatity(int quatity) {
+		this.quatity = quatity;
 	}
 	public String getName() {
 		return name;
@@ -30,16 +29,11 @@ public class Product {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	public String getPrice() {
+	
+	public double getPrice() {
 		return price;
 	}
-	public void setPrice(String price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 

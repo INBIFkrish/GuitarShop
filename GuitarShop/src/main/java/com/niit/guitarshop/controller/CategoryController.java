@@ -30,9 +30,11 @@ public class CategoryController {
 	@Autowired
 	Category category;
 	
-	@RequestMapping(value = { "/category" })
-	public String category() {
-		return "category";
+	@RequestMapping(value = {"/category"})
+	public ModelAndView getCategoryPage(){
+		ModelAndView mv = new ModelAndView("index");
+		mv.addObject("ifCategoryClicked", true);
+		return mv;
 	}
 	
 	@ModelAttribute("category")

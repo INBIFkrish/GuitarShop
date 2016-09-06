@@ -31,7 +31,7 @@ public class SupplierController {
 	Supplier supplier;
 	
 	@RequestMapping(value = {"/supplier"})
-	public ModelAndView getSupplier(){
+	public ModelAndView getSupplierPage(){
 		ModelAndView mv = new ModelAndView("index");
 		mv.addObject("ifSupplierClicked", true);
 		return mv;

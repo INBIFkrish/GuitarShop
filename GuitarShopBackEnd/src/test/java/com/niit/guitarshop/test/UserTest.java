@@ -23,12 +23,9 @@ public class UserTest {
 	
 	
 	
-	userDAO.delete("test");
-	
-	
 	System.out.println("Worked");
 	
-	
+	userDAO.list();
 	
 	List<User>  list =    userDAO.list();
 	

@@ -1,5 +1,7 @@
 package com.niit.guitarshop.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -26,12 +28,6 @@ public class UserController {
 	
 	@Autowired
 	User user;
-
-//	@Autowired
-//	private CartDAO cartDAO;
-	
-//	@Autowired
-//	private Cart cart;
 	
 	@Autowired
 	private CategoryDAO categoryDAO;
@@ -69,6 +65,8 @@ public class UserController {
 		}
 	
 	
+	
+	
 	@RequestMapping(value = "user/register", method = RequestMethod.POST)
 	public ModelAndView registerUser(@ModelAttribute User user, @RequestParam(value = "id") String userID, 
 			@RequestParam(value = "pass") String password) {
@@ -81,7 +79,6 @@ public class UserController {
 		
 		return mv;
 	}
-	
 	
 	
 	@RequestMapping(value = "user/login")

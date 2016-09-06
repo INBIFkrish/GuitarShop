@@ -1,9 +1,5 @@
 <%@include file="./shared/header.jsp"%>
 
-<c:if test="${isAdmin == true}">
-	<li><a href="category">Category</a></li>
-	<li><a href="supplier">Supplier</a></li>
-</c:if>
 <div class="container">
 
 	<br>
@@ -62,7 +58,7 @@
 
 <div class="row">
 	<div class="col-sm-4">
-		<a href="acoustic.html"> <img class="category"
+		<a href="acoustic"> <img class="category"
 			src="resources/Images/acoustic.png"> <span class="text-content"><span>
 					<h3>Acoustic</h3> The steel-string acoustic guitar is a modern form
 					of guitar that descends from the classical guitar, but is strung
@@ -73,7 +69,7 @@
 		</a>
 	</div>
 	<div class="col-sm-4">
-		<a href="acoustic.html"> <img class="category"
+		<a href="electric"> <img class="category"
 			src="resources/Images/electric.png"> <span class="text-content"><span>
 					<h3>Electric</h3> An electric guitar is a guitar that uses a pickup
 					to convert the vibration of its strings which are typically made of
@@ -94,7 +90,7 @@
 		</a>
 	</div>
 	<div class="col-sm-4">
-		<a href="acoustic.html"> <img class="category"
+		<a href="ukulele"> <img class="category"
 			src="resources/Images/ukulele.jpg"> <span class="text-content"><span>
 					<h3>Ukulele</h3> The ukulele,sometimes abbreviated to uke, is a
 					member of the lute family of instruments; it generally employs four

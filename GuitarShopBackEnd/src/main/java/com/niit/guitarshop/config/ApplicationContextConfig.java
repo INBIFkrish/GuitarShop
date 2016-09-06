@@ -50,6 +50,8 @@ public class ApplicationContextConfig {
 		sessionBuilder.addAnnotatedClass(User.class);
 		sessionBuilder.addAnnotatedClass(Category.class);
 		sessionBuilder.addAnnotatedClass(Supplier.class);
+		sessionBuilder.addAnnotatedClass(Product.class);
+		sessionBuilder.addAnnotatedClass(Cart.class);
 		return sessionBuilder.buildSessionFactory();
 	}
 

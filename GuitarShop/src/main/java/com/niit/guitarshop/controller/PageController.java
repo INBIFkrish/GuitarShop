@@ -13,12 +13,34 @@ import org.springframework.web.servlet.ModelAndView;
 
 public class PageController {
 	
-	@RequestMapping(value = { "/" })
+	@RequestMapping(value = { "/", "/home" })
 	public ModelAndView index() {
 		ModelAndView mv = new ModelAndView("index");
 		mv.addObject("ifHomeClicked", true);
 		return mv;
 	}
+	
+	@RequestMapping(value = { "/acoustic" })
+	public ModelAndView Acoustic() {
+		ModelAndView mv = new ModelAndView("index");
+		mv.addObject("ifAcousticClicked", true);
+		return mv;
+	}
+	
+	@RequestMapping(value = { "/electric" })
+	public ModelAndView Electric() {
+		ModelAndView mv = new ModelAndView("index");
+		mv.addObject("ifElectricClicked", true);
+		return mv;
+	}
+	
+	@RequestMapping(value = { "/ukulele" })
+	public ModelAndView Ukulele() {
+		ModelAndView mv = new ModelAndView("index");
+		mv.addObject("ifUkuleleClicked", true);
+		return mv;
+	}
+	
 	
 	
 	

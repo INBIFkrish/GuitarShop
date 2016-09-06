@@ -14,11 +14,9 @@ import com.niit.guitarshop.model.UserDetails;
 
 @Repository("userDAO")
 public class UserDAOImp implements UserDAO {
-	
 
 	@Autowired
 	private SessionFactory sessionFactory;
-
 
 	public UserDAOImp(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
@@ -27,8 +25,7 @@ public class UserDAOImp implements UserDAO {
 	@Transactional
 	public List<User> list() {
 		@SuppressWarnings("unchecked")
-		List<User> list = (List<User>) sessionFactory.getCurrentSession()
-				.createCriteria(User.class)
+		List<User> list = (List<User>) sessionFactory.getCurrentSession().createCriteria(User.class)
 				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
 
 		return list;
@@ -38,12 +35,12 @@ public class UserDAOImp implements UserDAO {
 	public void saveOrUpdate(User user) {
 		sessionFactory.getCurrentSession().saveOrUpdate(user);
 	}
-	
+
 	@Transactional
 	public void saveOrUpdate(UserDetails userDetails) {
 		sessionFactory.getCurrentSession().saveOrUpdate(userDetails);
 	}
-	
+
 	@Transactional
 	public void delete(String id) {
 		User user = new User();
@@ -53,33 +50,29 @@ public class UserDAOImp implements UserDAO {
 
 	@Transactional
 	public User get(String id) {
+		System.out.println(id);
 		String hql = "from User where id=" + id;
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
-		
 		@SuppressWarnings("unchecked")
 		List<User> list = (List<User>) query.list();
-		
+		System.out.println("works");
+
 		if (list != null && !list.isEmpty()) {
 			return list.get(0);
 		}
-		
+
 		return null;
 	}
-	
+
 	@Transactional
 	public boolean isValidUser(String id, String pass) {
-		String hql = "from User where id= '" + id + "' and " + " pass ='" + pass+"'";
+		String hql = "from User where id=" + "'" + id + "'" + "and pass=" + "'" + pass + "'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
-		
-		@SuppressWarnings("unchecked")
-		List<User> list = (List<User>) query.list();
-		
-		if (list != null && !list.isEmpty()) {
+		List<User> isValid = query.list();
+		if (isValid != null && !isValid.isEmpty()) {
 			return true;
 		}
-		
 		return false;
 	}
-
 
 }

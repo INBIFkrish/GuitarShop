@@ -31,7 +31,7 @@
 
 	</div>
 	<div class="col-sm-6">
-		<form:form action="user/login" modelAttribute="userLogin">
+		<form:form action="/j_spring_security_check" modelAttribute="userLogin">
 			<table>
 				<tr>
 					<td><form:label path="id">
